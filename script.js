@@ -1,3 +1,60 @@
+// 지역별 더미 데이터 (API 연동 시 이 부분만 교체)
+const regionData = {
+  seoul:  { name: '서울', pm10: 95,  pm25: 28, windDir: '북서풍', windSpeed: 6,  rain: 30 },
+  busan:  { name: '부산', pm10: 22,  pm25: 12, windDir: '남동풍', windSpeed: 9,  rain: 70 },
+  jeju:   { name: '제주', pm10: 18,  pm25: 8,  windDir: '남풍',   windSpeed: 12, rain: 80 },
+  daegu:  { name: '대구', pm10: 110, pm25: 55, windDir: '북동풍', windSpeed: 3,  rain: 10 },
+  incheon:{ name: '인천', pm10: 65,  pm25: 30, windDir: '서풍',   windSpeed: 7,  rain: 50 },
+};
+
+function getDustGrade(pm10) {
+  if (pm10 <= 30)  return { label: '좋음',    cls: 'grade-good' };
+  if (pm10 <= 80)  return { label: '보통',    cls: 'grade-normal' };
+  if (pm10 <= 150) return { label: '나쁨',    cls: 'grade-bad' };
+  return               { label: '매우나쁨', cls: 'grade-very-bad' };
+}
+
+function getWindGrade(speed) {
+  if (speed <= 3)  return { label: '약한 바람',    cls: 'grade-good' };
+  if (speed <= 8)  return { label: '보통 바람',    cls: 'grade-normal' };
+  if (speed <= 13) return { label: '강한 바람',    cls: 'grade-bad' };
+  return               { label: '매우 강한 바람', cls: 'grade-very-bad' };
+}
+
+function getRainGrade(prob) {
+  if (prob <= 20) return { label: '낮음',  cls: 'grade-good' };
+  if (prob <= 50) return { label: '보통',  cls: 'grade-normal' };
+  if (prob <= 70) return { label: '높음',  cls: 'grade-bad' };
+  return              { label: '매우높음', cls: 'grade-very-bad' };
+}
+
+function updateWeatherSummary(key) {
+  const d = regionData[key];
+
+  const dustGrade = getDustGrade(d.pm10);
+  document.getElementById('val-pm10').textContent = `${d.pm10} μg/m³`;
+  const gradepm10 = document.getElementById('grade-pm10');
+  gradepm10.textContent = dustGrade.label;
+  gradepm10.className = 'summary-grade ' + dustGrade.cls;
+
+  const windGrade = getWindGrade(d.windSpeed);
+  document.getElementById('val-wind').textContent = `${d.windDir} ${d.windSpeed} m/s`;
+  const gradeWind = document.getElementById('grade-wind');
+  gradeWind.textContent = windGrade.label;
+  gradeWind.className = 'summary-grade ' + windGrade.cls;
+
+  const rainGrade = getRainGrade(d.rain);
+  document.getElementById('val-rain').textContent = `${d.rain}%`;
+  const gradeRain = document.getElementById('grade-rain');
+  gradeRain.textContent = rainGrade.label;
+  gradeRain.className = 'summary-grade ' + rainGrade.cls;
+}
+
+const regionSelect = document.getElementById('region-select');
+regionSelect.addEventListener('change', (e) => updateWeatherSummary(e.target.value));
+updateWeatherSummary('seoul');
+
+// 퀴즈
 const questions = [
   {
     q: "미세먼지 PM10 농도가 95 μg/m³일 때 등급은 무엇인가요?",
