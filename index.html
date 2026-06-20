@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>날씨 예보 읽는 법</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <h1>🌤️ 날씨 예보 읽는 법</h1>
+      <p class="subtitle">기상청 예보를 제대로 이해해보자!</p>
+    </div>
+    <nav>
+      <a href="#dust">🌫️ 미세먼지</a>
+      <a href="#wind">💨 바람</a>
+      <a href="#rain">🌧️ 강수확률</a>
+      <a href="#quiz">🎮 퀴즈</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- 미세먼지 -->
+    <section id="dust">
+      <h2>🌫️ 미세먼지 읽기</h2>
+      <div class="card-grid">
+        <div class="info-card">
+          <h3>미세먼지란?</h3>
+          <p>지름이 <strong>10μm(마이크로미터) 이하</strong>인 아주 작은 먼지 입자예요. 눈에 보이지 않을 만큼 작아서 우리 몸속 깊이 들어올 수 있어요.</p>
+          <p>지름이 <strong>2.5μm 이하</strong>인 것은 <em>초미세먼지</em>라고 부르며 더 위험해요.</p>
+        </div>
+        <div class="info-card">
+          <h3>미세먼지 등급 기준</h3>
+          <table class="dust-table">
+            <thead>
+              <tr>
+                <th>등급</th>
+                <th>PM10 (μg/m³)</th>
+                <th>PM2.5 (μg/m³)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="good">
+                <td>😊 좋음</td>
+                <td>0 ~ 30</td>
+                <td>0 ~ 15</td>
+              </tr>
+              <tr class="normal">
+                <td>🙂 보통</td>
+                <td>31 ~ 80</td>
+                <td>16 ~ 35</td>
+              </tr>
+              <tr class="bad">
+                <td>😷 나쁨</td>
+                <td>81 ~ 150</td>
+                <td>36 ~ 75</td>
+              </tr>
+              <tr class="very-bad">
+                <td>🚫 매우나쁨</td>
+                <td>151 이상</td>
+                <td>76 이상</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="info-card tip-card">
+          <h3>💡 이렇게 행동해요</h3>
+          <ul>
+            <li><span class="badge good-badge">좋음</span> 야외 활동 마음껏 해도 돼요</li>
+            <li><span class="badge normal-badge">보통</span> 평소처럼 생활해도 괜찮아요</li>
+            <li><span class="badge bad-badge">나쁨</span> 장시간 야외 활동을 줄이고 마스크를 써요</li>
+            <li><span class="badge very-bad-badge">매우나쁨</span> 외출을 자제하고 반드시 마스크를 써요</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="example-box">
+        <h3>📋 예보 화면 예시</h3>
+        <div class="forecast-mock dust-mock">
+          <div class="mock-header">오늘의 대기질 예보</div>
+          <div class="mock-body">
+            <div class="mock-item">
+              <span class="mock-label">미세먼지 (PM10)</span>
+              <span class="mock-value bad">나쁨 · 95 μg/m³</span>
+            </div>
+            <div class="mock-item">
+              <span class="mock-label">초미세먼지 (PM2.5)</span>
+              <span class="mock-value normal">보통 · 28 μg/m³</span>
+            </div>
+          </div>
+          <div class="mock-tip">👆 PM10은 나쁨, PM2.5는 보통 — 오늘은 마스크를 챙기는 게 좋겠죠?</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 바람 읽기 -->
+    <section id="wind">
+      <h2>💨 바람 읽기</h2>
+      <div class="card-grid">
+        <div class="info-card">
+          <h3>풍향이란?</h3>
+          <p>바람이 <strong>불어오는 방향</strong>을 말해요. "북풍"은 북쪽에서 불어오는 바람이에요.</p>
+          <div class="compass">
+            <div class="compass-rose">
+              <span class="dir north">북(N)</span>
+              <span class="dir east">동(E)</span>
+              <span class="dir south">남(S)</span>
+              <span class="dir west">서(W)</span>
+              <span class="dir ne">북동</span>
+              <span class="dir se">남동</span>
+              <span class="dir sw">남서</span>
+              <span class="dir nw">북서</span>
+              <div class="arrow">↑</div>
+            </div>
+          </div>
+        </div>
+        <div class="info-card">
+          <h3>풍속 단계 (초속 m/s)</h3>
+          <div class="wind-scale">
+            <div class="wind-level">
+              <span class="wind-icon">🍃</span>
+              <div class="wind-info">
+                <strong>약한 바람</strong>
+                <span>0 ~ 3 m/s</span>
+                <p>나뭇잎이 살랑살랑 흔들려요</p>
+              </div>
+            </div>
+            <div class="wind-level">
+              <span class="wind-icon">🌿</span>
+              <div class="wind-info">
+                <strong>보통 바람</strong>
+                <span>4 ~ 8 m/s</span>
+                <p>나뭇가지가 흔들리고, 우산이 뒤집혀요</p>
+              </div>
+            </div>
+            <div class="wind-level">
+              <span class="wind-icon">🌬️</span>
+              <div class="wind-info">
+                <strong>강한 바람</strong>
+                <span>9 ~ 13 m/s</span>
+                <p>큰 나뭇가지가 흔들리고 걷기 불편해요</p>
+              </div>
+            </div>
+            <div class="wind-level">
+              <span class="wind-icon">🌀</span>
+              <div class="wind-info">
+                <strong>매우 강한 바람</strong>
+                <span>14 m/s 이상</span>
+                <p>나무가 부러질 수 있어요. 외출 주의!</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="info-card tip-card">
+          <h3>💡 예보에서 이렇게 나와요</h3>
+          <div class="forecast-mock">
+            <div class="mock-header">바람 예보</div>
+            <div class="mock-body">
+              <div class="mock-item">
+                <span class="mock-label">풍향</span>
+                <span class="mock-value">북서풍</span>
+              </div>
+              <div class="mock-item">
+                <span class="mock-label">풍속</span>
+                <span class="mock-value">5 ~ 8 m/s</span>
+              </div>
+            </div>
+            <div class="mock-tip">👆 북서쪽에서 보통 바람이 불어온다는 뜻이에요. 우산이 뒤집힐 수 있으니 주의!</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 강수확률 -->
+    <section id="rain">
+      <h2>🌧️ 강수확률 읽기</h2>
+      <div class="card-grid">
+        <div class="info-card">
+          <h3>강수확률이란?</h3>
+          <p>같은 기상 조건이 <strong>100번</strong> 있었을 때, 그 중 <strong>비나 눈이 내린 횟수</strong>를 퍼센트(%)로 나타낸 거예요.</p>
+          <div class="prob-visual">
+            <div class="prob-example">
+              <div class="prob-bar-wrap">
+                <div class="prob-bar" style="width:30%">30%</div>
+              </div>
+              <p>100번 중 30번 비가 왔어요</p>
+            </div>
+            <div class="prob-example">
+              <div class="prob-bar-wrap">
+                <div class="prob-bar high" style="width:80%">80%</div>
+              </div>
+              <p>100번 중 80번 비가 왔어요</p>
+            </div>
+          </div>
+        </div>
+        <div class="info-card">
+          <h3>강수확률 해석 기준</h3>
+          <div class="rain-scale">
+            <div class="rain-level">
+              <div class="rain-percent low">~20%</div>
+              <div class="rain-desc">
+                <strong>비 올 가능성 낮음</strong>
+                <p>우산 없이 나가도 괜찮아요</p>
+              </div>
+            </div>
+            <div class="rain-level">
+              <div class="rain-percent mid">30~50%</div>
+              <div class="rain-desc">
+                <strong>비 올 수도 있어요</strong>
+                <p>접이식 우산을 챙기는 게 좋아요</p>
+              </div>
+            </div>
+            <div class="rain-level">
+              <div class="rain-percent high">60~70%</div>
+              <div class="rain-desc">
+                <strong>비 올 가능성 높음</strong>
+                <p>우산은 필수! 야외 활동 계획을 바꾸는 게 좋아요</p>
+              </div>
+            </div>
+            <div class="rain-level">
+              <div class="rain-percent very-high">80% 이상</div>
+              <div class="rain-desc">
+                <strong>거의 확실히 비가 와요</strong>
+                <p>큰 우산과 방수 신발을 준비해요</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="info-card tip-card">
+          <h3>⚠️ 자주 하는 오해</h3>
+          <div class="misconception">
+            <div class="wrong">❌ "강수확률 50%면 하루의 절반은 비가 와요"</div>
+            <div class="right">✅ 비가 올 수도, 안 올 수도 있는 반반의 가능성이에요. 내리는 시간과는 관계없어요!</div>
+          </div>
+          <div class="misconception">
+            <div class="wrong">❌ "강수확률 0%면 절대 비가 안 와요"</div>
+            <div class="right">✅ 가능성이 매우 낮다는 뜻이지, 완전히 0은 아니에요.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 퀴즈 -->
+    <section id="quiz">
+      <h2>🎮 퀴즈로 확인해보자!</h2>
+      <div id="quiz-container">
+        <div id="quiz-progress">문제 <span id="current-q">1</span> / <span id="total-q">5</span></div>
+        <div id="quiz-card">
+          <p id="quiz-question"></p>
+          <div id="quiz-options"></div>
+          <div id="quiz-feedback"></div>
+          <button id="next-btn" style="display:none">다음 문제 →</button>
+        </div>
+        <div id="quiz-result" style="display:none">
+          <h3>🎉 결과 발표!</h3>
+          <p id="score-text"></p>
+          <div id="score-message"></div>
+          <button id="retry-btn">다시 풀기</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>기상청 날씨 교육 콘텐츠 · 초등 5~6학년용</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
