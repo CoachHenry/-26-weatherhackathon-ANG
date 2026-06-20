@@ -21,6 +21,37 @@
   </header>
 
   <main>
+    <!-- 지역 선택 -->
+    <div id="region-selector">
+      <label for="region-select">📍 지역 선택</label>
+      <select id="region-select">
+        <option value="seoul">서울</option>
+        <option value="busan">부산</option>
+        <option value="jeju">제주</option>
+        <option value="daegu">대구</option>
+        <option value="incheon">인천</option>
+      </select>
+    </div>
+
+    <!-- 오늘의 날씨 요약 카드 -->
+    <div id="weather-summary">
+      <div class="summary-card" id="summary-dust">
+        <div class="summary-label">🌫️ 미세먼지</div>
+        <div class="summary-value" id="val-pm10"></div>
+        <div class="summary-grade" id="grade-pm10"></div>
+      </div>
+      <div class="summary-card" id="summary-wind">
+        <div class="summary-label">💨 바람</div>
+        <div class="summary-value" id="val-wind"></div>
+        <div class="summary-grade" id="grade-wind"></div>
+      </div>
+      <div class="summary-card" id="summary-rain">
+        <div class="summary-label">🌧️ 강수확률</div>
+        <div class="summary-value" id="val-rain"></div>
+        <div class="summary-grade" id="grade-rain"></div>
+      </div>
+    </div>
+
     <!-- 미세먼지 -->
     <section id="dust">
       <h2>🌫️ 미세먼지 읽기</h2>
